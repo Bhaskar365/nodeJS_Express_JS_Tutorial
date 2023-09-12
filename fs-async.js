@@ -1,5 +1,5 @@
 const { readFile, writeFile } = require('fs');
-
+console.log('start');
 readFile('first.txt', 'utf8',(err,result)=>{
     if(err) {
         console.log(err);
@@ -13,7 +13,7 @@ readFile('first.txt', 'utf8',(err,result)=>{
             return 
         }
         const second = result;
-        
+
         writeFile('result-async.txt',
         `Here is the result : ${first}, ${second}`,
         (err,result)=>{
@@ -21,7 +21,8 @@ readFile('first.txt', 'utf8',(err,result)=>{
                 console.log(err);
                 return;
             }    
-            console.log(result);
+            console.log('done with write task');
         })
     })
 })
+console.log('starting next task')
